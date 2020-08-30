@@ -1,0 +1,44 @@
+{% extends 'blog1/base.html' %}
+
+
+{% block blockname %}
+
+
+{% if user.is_authenticated %}
+    
+
+    
+{% for post in post_list %}
+
+<div class="post">
+
+<h1> <a href="{% url 'detail' post.pk %}">{{post}}</a> </h1>
+
+</div>
+
+<div class="date">
+    
+    {% if post.published_date %}
+    <p>Published on: {{post.published_date|date:"D M Y"}}</p>
+
+    {% else %}
+    <p>Created on: {{post.created_date|date:"D M Y"}}</p>
+    {% endif %}
+        
+</div>
+
+{% endfor %}
+
+
+{% else %}
+
+<p>Click here to login</p>
+<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+
+{% endif %}
+
+
+    
+    
+{% endblock blockname %}
+    

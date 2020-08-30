@@ -1,0 +1,67 @@
+{% extends 'blog1/base.html' %}
+
+
+{% block blockname %}
+    
+
+    
+<div class="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="posttitle">{{post.title}}</h1>
+                {% if post.published_date %}
+                <p class="postdate">{{post.published_date}}</p>
+           
+
+                
+
+                    
+
+            <hr>
+            </div>
+
+                
+        </div>
+
+        {% else %}
+
+        <a class="btn btn-danger" href="{% url 'delete' post.pk %}">Delete</a>
+        <a class="btn btn-success" href="{% url 'publish' post.pk %}">Publish</a>
+
+
+
+        {% endif %}
+
+        {% if post.comments %}
+
+
+                
+        {% for comment in post.comments.all %}
+           
+        <p>Username: {{comment.author}}</p>
+        <p>{{comment.text}}</p>
+        <p>{{comment.commented_on}}</p>
+
+
+        {% if not comment.approved %}
+        <a class="btn btn-danger" href="{% url 'comment_delete' comment.pk %}">Reject</a>
+        <a class="btn btn-success" href="{% url 'approve' comment.pk %}">Accept</a>
+
+
+        {% endif %}
+
+
+                      
+        {% endfor %}
+            
+            
+            
+            
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock blockname %}

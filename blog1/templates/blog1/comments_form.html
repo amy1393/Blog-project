@@ -1,0 +1,18 @@
+{% extends 'blog1/base.html' %}
+{% block blockname %}
+    
+
+  
+
+<div class="comments"> 
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-primary" value="Create Post">
+</form>
+
+<script>var editor = new MediumEditor('.editable');</script>
+</div> 
+
+
+{% endblock blockname %}

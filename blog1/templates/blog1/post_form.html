@@ -1,0 +1,27 @@
+{% extends 'blog1/base.html' %}
+{% block blockname %}
+    
+
+<div class="div">
+{% if form.instance.pk %}
+
+<h1>Update the Post:</h1>
+{% else %}
+
+<h1>Create a new Post:</h1> 
+{% endif %}
+</div>
+    
+
+<div class="create"> 
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-primary" value="Create Post">
+</form>
+
+<script>var editor = new MediumEditor('.editable');</script>
+</div> 
+
+
+{% endblock blockname %}

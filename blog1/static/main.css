@@ -1,0 +1,23 @@
+
+.create{
+  margin: 80px auto;
+  width: 40%
+}
+
+.post, .postdate{
+  margin : 20px;
+
+
+}
+
+.posttitle, .postdate{
+  text-align: center;
+}
+
+.div{
+  text-align: center;
+}
+
+.date{
+  margin: 20px;
+}
